@@ -1,4 +1,4 @@
-package home_work_1.produser_consumer.utils;
+package home_work_1.produser_queue_consumer.utils;
 
 import java.io.File;
 import java.io.FileWriter;

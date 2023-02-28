@@ -1,6 +1,6 @@
-package home_work_1.produser_consumer.job;
+package home_work_1.produser_queue_consumer.job;
 
-import home_work_1.produser_consumer.utils.FileUtil;
+import home_work_1.produser_queue_consumer.utils.FileUtil;
 
 import java.util.Queue;
 import java.util.concurrent.TimeUnit;

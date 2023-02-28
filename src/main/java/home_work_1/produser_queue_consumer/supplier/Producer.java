@@ -1,4 +1,4 @@
-package home_work_1.produser_consumer.supplier;
+package home_work_1.produser_queue_consumer.supplier;
 
 import home_work_1.exceptions.UserInputException;
 

@@ -1,7 +1,7 @@
-package home_work_1.produser_consumer;
+package home_work_1.produser_queue_consumer;
 
-import home_work_1.produser_consumer.job.Consumer;
-import home_work_1.produser_consumer.supplier.Producer;
+import home_work_1.produser_queue_consumer.job.Consumer;
+import home_work_1.produser_queue_consumer.supplier.Producer;
 
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
