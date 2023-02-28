@@ -1,5 +1,5 @@
 **Project 'Producer-Queue-Consumer'**
-Решение проекта реализовано в пакете producer_queue_consumer.
+Решение проекта реализовано в пакете **producer_queue_consumer**.
 
 task 1
 Реализовать поток **Producer** бесконечно считывающий целые числа, которые пользователь вводит в **Standard Input**.
@@ -39,7 +39,14 @@ task 8
 Добавить несколько потоков **Consumer**.
 
 Solution
-Решение реализовано в пакете **producer_queue_consumer** классом **Demo1**. 
+Решение реализовано в  **test/java/home_work_1/producer_queue_consumer** классом **Demo1**. 
 
 **Project 'Backup utility'**
 Реализовать утилиту для резервного копирования директории.
+
+Solution
+Решение проекта реализовано в пакете **backupUtility**.
+Добавление файлов в очередь реализовано в пакете **supplier** классом **FileMarker**.
+Копирование файлов в резервную папку реализовано в пакете **supplier** классом **DirectoryCreator**.
+В **test/java/home_work_1/backupUtility** в класск Demo1 реализовано добавление нескольких
+потоков **DirectoryCreator**.
