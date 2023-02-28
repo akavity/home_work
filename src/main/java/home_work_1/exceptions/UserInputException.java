@@ -1,0 +1,7 @@
+package home_work_1.exceptions;
+
+public class UserInputException extends RuntimeException {
+    public UserInputException(String massage) {
+        super(massage);
+    }
+}
