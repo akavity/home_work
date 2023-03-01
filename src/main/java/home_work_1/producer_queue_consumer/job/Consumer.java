@@ -16,21 +16,23 @@ public class Consumer implements Runnable {
 
     @Override
     public void run() {
-        FileUtil file = new FileUtil(fileName);
-        Integer sleepTime = null;
-        while ((sleepTime = queue.poll()) != null) {
-            sleep(sleepTime);
-            file.write(" - I slept " + sleepTime + " second(s)");
+        while (!Thread.currentThread().isInterrupted()) {
+            FileUtil file = new FileUtil(fileName);
+            while (queue.peek() != null && queue.peek() == -1) {
+                Integer sleepTime = queue.poll();
+                sleep(sleepTime);
+                file.write(" - I slept " + sleepTime + " second(s)");
+            }
+            file.write(" ...");
+            sleep(1);
         }
-        file.write(" ...");
-        sleep(1);
     }
 
     private void sleep(Integer time) {
         try {
             TimeUnit.SECONDS.sleep(time);
         } catch (InterruptedException e) {
-            System.out.println(e.getMessage());
+            Thread.currentThread().interrupt();
         }
     }
 }
