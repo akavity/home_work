@@ -16,7 +16,6 @@ public class Demo1 {
         Thread consumer3 = new Thread(new Consumer(queueContainer, "test.txt"));
 
         producer.start();
-        producer.join();
         consumer1.start();
         consumer2.start();
         consumer3.start();
