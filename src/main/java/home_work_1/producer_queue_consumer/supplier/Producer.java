@@ -1,12 +1,15 @@
-package home_work_1.produser_queue_consumer.supplier;
+package home_work_1.producer_queue_consumer.supplier;
 
 import home_work_1.exceptions.UserInputException;
 
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Producer implements Runnable {
     private final Queue<Integer> queue;
+    public static final Logger logger = Logger.getLogger(Producer.class.getName());
 
     public Producer(Queue<Integer> queueContainer) {
         this.queue = queueContainer;
@@ -33,7 +36,7 @@ public class Producer implements Runnable {
                     throw new UserInputException("Write only numbers!");
                 }
             } catch (UserInputException e) {
-                System.out.println(e.getMessage());
+                logger.log(Level.SEVERE, "Error message", e);
                 scanner.next();
             }
         }
