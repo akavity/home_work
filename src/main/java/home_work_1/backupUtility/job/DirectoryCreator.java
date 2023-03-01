@@ -19,7 +19,7 @@ public class DirectoryCreator implements Runnable {
     public void run() {
         boolean existence = false;
         File dest = new File(directory);
-        if (!dest.exists()) {
+        if (!dest.exists() && dest.isDirectory()) {
             existence = dest.mkdir();
             System.out.println("New directory has created");
         }
