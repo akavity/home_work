@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class Consumer implements Runnable {
     private final Queue<Integer> queue;
     private final String fileName;
+    private volatile boolean stopFlag = true;
 
     public Consumer(Queue<Integer> queue, String fileName) {
         this.queue = queue;
@@ -16,10 +17,14 @@ public class Consumer implements Runnable {
 
     @Override
     public void run() {
-        while (!Thread.currentThread().isInterrupted()) {
+        while (!Thread.currentThread().isInterrupted() && stopFlag) {
             FileUtil file = new FileUtil(fileName);
-            while (queue.peek() != null && queue.peek() == -1) {
-                Integer sleepTime = queue.poll();
+            Integer sleepTime = null;
+            while ((sleepTime = queue.poll()) != null) {
+                if (sleepTime == -1) {
+                    stopFlag = false;
+                    break;
+                }
                 sleep(sleepTime);
                 file.write(" - I slept " + sleepTime + " second(s)");
             }
