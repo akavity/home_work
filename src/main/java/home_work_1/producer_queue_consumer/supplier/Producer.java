@@ -25,6 +25,7 @@ public class Producer implements Runnable {
                     time = scanner.nextInt();
                     if (time == -1) {
                         System.out.println("Goodbye");
+                        queue.add(time);
                         break;
                     } else if (time >= 0) {
                         System.out.println("Time's has added");
