@@ -15,6 +15,8 @@ public class Task02 {
         santaShop.addProductsInShop(sausages, 50);
 
         Basket myBasket = santaShop.getBasket();
+        santaShop.printListOfProducts();
+
 
 
 

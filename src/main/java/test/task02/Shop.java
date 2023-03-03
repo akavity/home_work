@@ -3,13 +3,11 @@ package test.task02;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class Shop {
-    private final Basket basket;
-    private Map<Product, Integer> productsInShop;
+
+    private final Map<Product, Integer> productsInShop;
 
     public Shop() {
-        this.basket = new Basket();
         this.productsInShop = new HashMap<>();
     }
 
@@ -17,19 +15,36 @@ public class Shop {
         productsInShop.put(product, amount);
     }
 
-    public void printProductList() {
-        StringBuilder listOfProducts = new StringBuilder();
-//        for (Map.Entry<Product, Integer> item : productsInShop.entrySet()) {
-//            ("Product: %s  Amount: %s  Price: %s \n", item.getKey().getName(), item.getValue(),
-//                    item.getKey().getPrice());
-//        }
-    }
-
     public Basket getBasket() {
-        return basket;
+        return new Basket();
     }
 
     public Map<Product, Integer> getProductsInShop() {
         return productsInShop;
+    }
+
+    public void printListOfProducts() {
+        for (Map.Entry<Product, Integer> item : productsInShop.entrySet()) {
+            System.out.printf("Product: %s  Amount: %s  Price: %s \n",
+                    item.getKey().getName(), item.getValue(), item.getKey().getPrice());
+        }
+    }
+
+    public int getProduct(Product product, int amount) {
+        int result;
+        int numberOfProducts = productsInShop.get(product);
+        if (numberOfProducts < amount) {
+            result = 0;
+        } else {
+            int balance = numberOfProducts - amount;
+            productsInShop.replace(product, balance);
+            result = amount;
+        }
+        return result;
+    }
+
+    public Check getCheck(Basket basket) {
+        Check check = new Check(basket.getListOfProducts(), basket.getAllPrice());
+        return check;
     }
 }
