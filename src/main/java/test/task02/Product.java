@@ -8,6 +8,7 @@ public class Product {
         this.name = name;
         this.price = price;
     }
+
     @Override
     public String toString() {
         return String.format("Product: %s,  Price: %s", getName(), getPrice());
